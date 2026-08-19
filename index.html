@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DigitalSupplyChain.com — Digital supply chain, traceability and data visibility</title>
+  <meta name="description" content="DigitalSupplyChain.com: a platform focused on digital supply chains, end-to-end traceability, supplier data, logistics visibility, resilience and lifecycle information.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://digitalsupplychain.com/">
+
+  <!-- Google Analytics: add the specific GA4 Measurement ID for digitalsupplychain.com here -->
+
+  <style>
+    :root{
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --text:#172033;
+      --muted:#667085;
+      --primary:#1f5eff;
+      --primary-dark:#1748c9;
+      --border:#e7eaf0;
+      --soft:#eef4ff;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,
+                  "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top right,rgba(31,94,255,.08),transparent 30rem),
+        linear-gradient(180deg,#f8fbff 0%,#f7f9fc 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .container{width:min(1120px,calc(100% - 40px));margin:0 auto}
+
+    header{
+      padding:22px 0;
+      border-bottom:1px solid rgba(231,234,240,.8);
+      background:rgba(255,255,255,.82);
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+
+    nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+
+    .brand{
+      font-weight:800;
+      font-size:1.22rem;
+      letter-spacing:-.035em;
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .brand span{color:var(--primary)}
+    .nav-actions{display:flex;align-items:center;gap:18px}
+
+    .nav-link{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:.95rem;
+      font-weight:600;
+    }
+
+    .language-switch{
+      display:flex;
+      align-items:center;
+      gap:4px;
+      padding:4px;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:10px;
+    }
+
+    .language-switch button{
+      border:0;
+      background:transparent;
+      color:var(--muted);
+      font:inherit;
+      font-size:.82rem;
+      font-weight:800;
+      padding:6px 9px;
+      border-radius:7px;
+      cursor:pointer;
+    }
+
+    .language-switch button.active{background:var(--text);color:#fff}
+
+    .hero{
+      min-height:72vh;
+      display:flex;
+      align-items:center;
+      padding:80px 0 70px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border:1px solid #dbe5ff;
+      background:var(--soft);
+      color:var(--primary);
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-bottom:22px;
+    }
+
+    h1{
+      font-size:clamp(3rem,7vw,5.8rem);
+      line-height:.98;
+      letter-spacing:-.065em;
+      max-width:900px;
+    }
+
+    .hero p{
+      margin-top:26px;
+      font-size:1.18rem;
+      color:var(--muted);
+      max-width:720px;
+    }
+
+    .actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      border-radius:12px;
+      padding:13px 20px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+      box-shadow:0 10px 30px rgba(31,94,255,.18);
+    }
+
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--text);
+      border:1px solid var(--border);
+    }
+
+    .btn-secondary:hover{border-color:#cbd2dc;transform:translateY(-1px)}
+
+    .preview{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:0 24px 70px rgba(31,46,78,.08);
+    }
+
+    .preview-top{display:flex;gap:7px;margin-bottom:24px}
+    .dot{width:9px;height:9px;border-radius:50%;background:#d9dee7}
+
+    .mini-card{
+      padding:18px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      margin-top:12px;
+      background:#fbfcfe;
+    }
+
+    .mini-card strong{display:block;margin-bottom:4px}
+    .mini-card span{color:var(--muted);font-size:.92rem}
+
+    .section{padding:80px 0}
+
+    .section-title{
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 42px;
+    }
+
+    .section-title h2{
+      font-size:clamp(2rem,4vw,3.2rem);
+      letter-spacing:-.045em;
+      line-height:1.05;
+    }
+
+    .section-title p{color:var(--muted);margin-top:14px}
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:26px;
+    }
+
+    .icon{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      background:var(--soft);
+      display:grid;
+      place-items:center;
+      color:var(--primary);
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .card h3{font-size:1.1rem;margin-bottom:7px}
+    .card p{color:var(--muted);font-size:.95rem}
+
+    .cta{
+      margin:50px auto 80px;
+      background:var(--text);
+      color:#fff;
+      border-radius:24px;
+      padding:48px;
+      text-align:center;
+    }
+
+    .cta h2{
+      font-size:clamp(2rem,4vw,3rem);
+      letter-spacing:-.045em;
+    }
+
+    .cta p{color:#cbd2dc;margin-top:10px}
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:28px 0 40px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .footer-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    @media(max-width:800px){
+      .hero{min-height:auto;padding-top:60px}
+      .hero-grid{grid-template-columns:1fr;gap:38px}
+      .cards{grid-template-columns:1fr}
+      .preview{max-width:560px}
+      .nav-link{display:none}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="brand">DigitalSupply<span>Chain</span></a>
+
+      <div class="nav-actions">
+        <a href="#about" class="nav-link" data-i18n="navAbout">About the project</a>
+
+        <div class="language-switch" aria-label="Language selector">
+          <button type="button" id="lang-en" class="active" onclick="setLanguage('en')">EN</button>
+          <button type="button" id="lang-es" onclick="setLanguage('es')">ES</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow" data-i18n="eyebrow">✦ Supply Chain · Data · Traceability</div>
+
+      <h1 data-i18n="heroTitle">A connected digital layer for the supply chain.</h1>
+
+      <p data-i18n="heroText">
+        DigitalSupplyChain.com is designed as a platform for connecting suppliers,
+        materials, production, logistics, inventory and lifecycle data to improve
+        end-to-end visibility across complex supply networks.
+      </p>
+
+      <div class="actions">
+        <a href="#about" class="btn btn-primary" data-i18n="discover">Discover the project</a>
+        <a href="#coming" class="btn btn-secondary" data-i18n="comingSoon">Coming soon</a>
+      </div>
+    </div>
+
+    <div class="preview" aria-label="Digital Supply Chain">
+      <div class="preview-top">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+
+      <div class="mini-card">
+        <strong data-i18n="visibility">🌐 End-to-end visibility</strong>
+        <span data-i18n="visibilityText">Connect suppliers, materials, production, inventory and logistics in one digital view.</span>
+      </div>
+
+      <div class="mini-card">
+        <strong data-i18n="traceability">🔗 Traceability</strong>
+        <span data-i18n="traceabilityText">Follow materials, batches, components, shipments and changes across the value chain.</span>
+      </div>
+
+      <div class="mini-card">
+        <strong data-i18n="resilience">🛡 Resilience</strong>
+        <span data-i18n="resilienceText">Improve visibility of dependencies, disruptions, risks and critical supply-chain relationships.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2 data-i18n="sectionTitle">Data continuity across the entire supply network.</h2>
+
+      <p data-i18n="sectionText">
+        A digital supply-chain concept focused on traceability, transparency,
+        operational visibility and structured data across organizations and lifecycle stages.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="icon">01</div>
+        <h3 data-i18n="suppliers">Suppliers & materials</h3>
+        <p data-i18n="suppliersText">Connect supplier identity, material origin, sourcing, batches and component relationships.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">02</div>
+        <h3 data-i18n="operations">Operations & logistics</h3>
+        <p data-i18n="operationsText">Link production status, inventory, warehousing, shipments and logistics events.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">03</div>
+        <h3 data-i18n="intelligence">Supply-chain intelligence</h3>
+        <p data-i18n="intelligenceText">Structure data for monitoring, analytics, risk assessment, planning and decision support.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="coming">
+  <div class="cta">
+    <h2 data-i18n="ctaTitle">We are building DigitalSupplyChain.com</h2>
+    <p data-i18n="ctaText">Traceability concepts, supply-chain data models and digital transformation resources will be available soon.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <strong>DigitalSupplyChain.com</strong>
+    <span>© 2026 DigitalSupplyChain.com</span>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  en:{
+    pageTitle:"DigitalSupplyChain.com — Digital supply chain, traceability and data visibility",
+    description:"DigitalSupplyChain.com: a platform focused on digital supply chains, end-to-end traceability, supplier data, logistics visibility, resilience and lifecycle information.",
+    navAbout:"About the project",
+    eyebrow:"✦ Supply Chain · Data · Traceability",
+    heroTitle:"A connected digital layer for the supply chain.",
+    heroText:"DigitalSupplyChain.com is designed as a platform for connecting suppliers, materials, production, logistics, inventory and lifecycle data to improve end-to-end visibility across complex supply networks.",
+    discover:"Discover the project",
+    comingSoon:"Coming soon",
+    visibility:"🌐 End-to-end visibility",
+    visibilityText:"Connect suppliers, materials, production, inventory and logistics in one digital view.",
+    traceability:"🔗 Traceability",
+    traceabilityText:"Follow materials, batches, components, shipments and changes across the value chain.",
+    resilience:"🛡 Resilience",
+    resilienceText:"Improve visibility of dependencies, disruptions, risks and critical supply-chain relationships.",
+    sectionTitle:"Data continuity across the entire supply network.",
+    sectionText:"A digital supply-chain concept focused on traceability, transparency, operational visibility and structured data across organizations and lifecycle stages.",
+    suppliers:"Suppliers & materials",
+    suppliersText:"Connect supplier identity, material origin, sourcing, batches and component relationships.",
+    operations:"Operations & logistics",
+    operationsText:"Link production status, inventory, warehousing, shipments and logistics events.",
+    intelligence:"Supply-chain intelligence",
+    intelligenceText:"Structure data for monitoring, analytics, risk assessment, planning and decision support.",
+    ctaTitle:"We are building DigitalSupplyChain.com",
+    ctaText:"Traceability concepts, supply-chain data models and digital transformation resources will be available soon."
+  },
+
+  es:{
+    pageTitle:"DigitalSupplyChain.com — Cadena de suministro digital, trazabilidad y visibilidad de datos",
+    description:"DigitalSupplyChain.com: plataforma centrada en cadena de suministro digital, trazabilidad extremo a extremo, datos de proveedores, logística, resiliencia e información de ciclo de vida.",
+    navAbout:"Sobre el proyecto",
+    eyebrow:"✦ Supply Chain · Datos · Trazabilidad",
+    heroTitle:"Una capa digital conectada para la cadena de suministro.",
+    heroText:"DigitalSupplyChain.com nace como una plataforma para conectar proveedores, materiales, producción, logística, inventario y datos de ciclo de vida, mejorando la visibilidad extremo a extremo en redes de suministro complejas.",
+    discover:"Descubrir el proyecto",
+    comingSoon:"Próximamente",
+    visibility:"🌐 Visibilidad extremo a extremo",
+    visibilityText:"Conecta proveedores, materiales, producción, inventario y logística en una única visión digital.",
+    traceability:"🔗 Trazabilidad",
+    traceabilityText:"Sigue materiales, lotes, componentes, envíos y cambios a lo largo de la cadena de valor.",
+    resilience:"🛡 Resiliencia",
+    resilienceText:"Mejora la visibilidad de dependencias, interrupciones, riesgos y relaciones críticas de suministro.",
+    sectionTitle:"Continuidad de datos en toda la red de suministro.",
+    sectionText:"Un concepto de cadena de suministro digital centrado en trazabilidad, transparencia, visibilidad operativa y datos estructurados entre organizaciones y etapas del ciclo de vida.",
+    suppliers:"Proveedores y materiales",
+    suppliersText:"Conecta identidad de proveedores, origen de materiales, abastecimiento, lotes y relaciones entre componentes.",
+    operations:"Operaciones y logística",
+    operationsText:"Relaciona estado de producción, inventario, almacenes, envíos y eventos logísticos.",
+    intelligence:"Inteligencia de supply chain",
+    intelligenceText:"Estructura datos para monitorización, analítica, evaluación de riesgos, planificación y soporte a decisiones.",
+    ctaTitle:"Estamos preparando DigitalSupplyChain.com",
+    ctaText:"Próximamente encontrarás conceptos de trazabilidad, modelos de datos de supply chain y recursos sobre transformación digital."
+  }
+};
+
+function setLanguage(lang){
+  const t = translations[lang] || translations.en;
+
+  document.documentElement.lang = lang;
+  document.title = t.pageTitle;
+
+  const meta = document.querySelector('meta[name="description"]');
+  if(meta) meta.setAttribute("content", t.description);
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(t[key]) el.textContent = t[key];
+  });
+
+  document.getElementById("lang-en").classList.toggle("active", lang==="en");
+  document.getElementById("lang-es").classList.toggle("active", lang==="es");
+
+  localStorage.setItem("digitalsupplychain-language", lang);
+}
+
+const savedLanguage = localStorage.getItem("digitalsupplychain-language");
+const browserLanguage = (navigator.language || "").toLowerCase();
+
+let initialLanguage = "en";
+if(browserLanguage.startsWith("es")) initialLanguage = "es";
+
+setLanguage(savedLanguage || initialLanguage);
+</script>
+</body>
+</html>
